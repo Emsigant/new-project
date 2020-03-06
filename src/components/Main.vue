@@ -20,7 +20,10 @@
         />
       </div>
     </div>
-    <input ref="input" placeholder="输入待办事项" type="text" @keyup="handleKeyUp" v-model="val" />
+    <div class="item">
+      <input type="checkbox" class="check" />
+      <input ref="input" placeholder="输入待办事项" type="text" @keyup="handleKeyUp" v-model="val" />
+    </div>
   </div>
 </template>
 
