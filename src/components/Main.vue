@@ -63,11 +63,11 @@ export default {
       }
       if (keyCode === 8) {
         if (val === "") {
-          const itemInputs = this.$refs.itemInput;
-          const lastInput = itemInputs[itemInputs.length - 1];
-          const input = this.$refs.input;
-          input.blur();
           if (list.length) {
+            const itemInputs = this.$refs.itemInput;
+            const lastInput = itemInputs[itemInputs.length - 1];
+            const input = this.$refs.input;
+            input.blur();
             list[list.length - 1].showEdit = true;
             this.$nextTick().then(() => {
               lastInput.focus();
