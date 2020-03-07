@@ -67,10 +67,12 @@ export default {
           const lastInput = itemInputs[itemInputs.length - 1];
           const input = this.$refs.input;
           input.blur();
-          list[list.length - 1].showEdit = true;
-          this.$nextTick().then(() => {
-            lastInput.focus();
-          });
+          if (list.length) {
+            list[list.length - 1].showEdit = true;
+            this.$nextTick().then(() => {
+              lastInput.focus();
+            });
+          }
         }
       }
     },
