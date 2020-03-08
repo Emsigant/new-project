@@ -35,6 +35,9 @@
 </template>
 
 <script>
+// id text order action status
+import axios from "axios";
+
 export default {
   name: "Main",
   props: {
@@ -45,6 +48,21 @@ export default {
       list: [],
       val: ""
     };
+  },
+  beforeCreate() {
+    axios
+      .get("http://artistlab.cn/api/get/login", {
+        withCredentials: true
+      })
+      .then(res => {
+        const {
+          data: { result, preurl }
+        } = res;
+        if (result === "fail") {
+          const url = `${preurl}${window.location.href}`;
+          window.location.href = url;
+        }
+      });
   },
   methods: {
     handleKeyUp(e) {
